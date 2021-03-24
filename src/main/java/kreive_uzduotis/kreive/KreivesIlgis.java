@@ -28,12 +28,12 @@ public class KreivesIlgis {
 		
 	//!	Klase klase = new Klase();																				//"prisijungiama" prie "klase" klases
 	//!	KonsolesDialogas failo_skaitymas = new KonsolesDialogas();                                              // "prisijungiama" prie konsolesdialogo klases
-		Taskas taskas = kreive_is_failo.ivedimas();																		// sukuriamas naujas taskas kuriam bus priskirta X ir Y ivedime
+		Taskas taskas = this.kreive_is_failo.ivedimas();																		// sukuriamas naujas taskas kuriam bus priskirta X ir Y ivedime
 		//!String vardas_failo = failo_skaitymas.ivestiReiksme("kreives tasku failas", "kreives_taskai.csv");		// perskaitomas CSV failas
 		//!KreiveIsFailoXXYY kreive_is_failo_xx_yy = new KreiveIsFailoXXYY ( vardas_failo ); 						
-		Kreive kreive = kreive_is_failo.gautiKreive();		
-		//System.out.println ( kreive.toString() );
-		ArrayList<Double> atstumux_masyvas =  kreive_is_failo.ilgisX(taskas);
+		Kreive kreive = this.kreive_is_failo.gautiKreive();		
+		System.out.println ( kreive.toString() );
+		ArrayList<Double> atstumux_masyvas =  kreive.ilgisX(taskas);
 		kreive.minReiksme(atstumux_masyvas);
 				
 		System.out.println ( "-------------------------------" );

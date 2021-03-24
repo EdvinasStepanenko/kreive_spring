@@ -91,7 +91,7 @@ public class Kreive3D extends Kreive {
 						
 			double x_diff =  taskai [ i ].x  - taskas.x;
 			double y_diff =  taskai [ i ].y -  taskas.y;			
-			double z_diff = ( ( (Taskas3D) taskai [ i ] ).z ) -   ( ( (Taskas3D)  taskai [ i + 1 ]).z );	
+			double z_diff = ( ( (Taskas3D) taskai [ i ] ).z ) -  ( ( (Taskas3D)  taskas).z );	
 			
 			atstumasx = Math.sqrt (( x_diff * x_diff ) + ( y_diff * y_diff ) + (z_diff * z_diff));
 			atstumux_masyvas.add(atstumasx);
