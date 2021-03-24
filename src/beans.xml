@@ -1,0 +1,20 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+   <bean id = "mainspring" class = "kreive_uzduotis.kreive.KreivesIlgis" scope = "singleton">
+   		<constructor-arg index="0" ref="kreive_is_failo_xyz" />   
+   </bean>  
+   <bean id = "kreive_is_failo_xyxy" class = "kreive_uzduotis.plokstuma.KreiveIsFailoXYXY" scope = "singleton">
+		<constructor-arg index="0" value="kreives_taskai2.csv" />   
+   </bean>
+   <bean id = "kreive_is_failo_xxyy" class = "kreive_uzduotis.plokstuma.KreiveIsFailoXXYY" scope = "singleton">
+		<constructor-arg index="0" value="kreives_taskai.csv" />     
+   </bean>         
+   <bean id = "kreive_is_failo_xyz" class = "kreive_uzduotis.plokstuma.KreiveIsFailoXYZ" scope = "singleton">
+		<constructor-arg index="0" value="kreives_taskai3.csv" />    
+   </bean>  
+</beans>
