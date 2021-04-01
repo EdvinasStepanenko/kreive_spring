@@ -1,17 +1,19 @@
 		
 		
 		function GrafikasX ( id_canvas, reiksmes, x_koord_pav, y_koord_pav ) {
-
+									
 			cnv = document.getElementById ( id_canvas  );
-
+						
 			this.ctx = cnv.getContext ( '2d' );	
 			this.ctx.strokeStyle = "purple";
 
 			this.x_width = ( cnv.width - 50 );
 			this.y_height = ( cnv.height - 50 );
-
+						
 			this.x_koord_prad = 30;
 			this.y_koord_prad = this.y_height + 20;
+			
+			this.ctx.clearRect(0, 0, 900, 500);
 
 			console.log ( "x_koord_prad: " + this.x_koord_prad + " y_koord_prad: " + this.y_koord_prad );			
 
