@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Labas Spring web</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	<script src="GrafikasX.js"></script>
+	<script>
+
+		$( document ).ready ( function() {
+		
+		var taskai_visi;
+		var	taskas = { x: 0, y: 0, z: 0 };
+		var paskutinis_taskas
+		
+		function Braizymas(){
+		
+			taskai_visi.push ( taskas );
+
+				grafikas = new GrafikasX ( 'kreives_grafikas', taskai_visi, 'x', 'z' );
+
+				paskutinis_taskas = taskai_visi.pop();
+
+				grafikas.braizom ( taskai_visi, 'x', 'z', "blue" );
+
+				atkarpa = [];
+
+				atkarpa.push ( taskas );
+				console.log("1" + paskutinis_taskas)
+				atkarpa.push ( paskutinis_taskas );
+				console.log("2" + paskutinis_taskas)
+				//vel kreptis ajaxu arba tuo paciu kreipimusi i java kreiptis ir istraukti ta taska
+
+				//ir ikist kur ten [ 0 ] yra
+
+				grafikas.braizom ( atkarpa, 'x', 'z', "red" );		
+		}
+		
+		function Ajaxas(){
+			$.ajax({
+				 method: "POST",
+		 		 url: '/kreives-taskai',
+		 		 data: {x: taskas.x, y: taskas.y, z: taskas.z}
+
+			}).done( function( data ) {
+				
+				console.log ( JSON.stringify ( data ) );
+			
+				taskai_visi = data.taskai;
+				
+				Braizymas();
+				
+		  	});	
+		}
+				
+		   	$( '#piesti' ).click( function() {
+
+		  		taskas.x = $( '#inp_x' ).val();
+		  		taskas.y = $( '#inp_y' ).val();
+		  		taskas.z = $( '#inp_z' ).val();
+				Ajaxas();
+				
+		  	});
+		});
+					
+	</script>
+	<style>
+		#forma {
+			 width: 90%;
+			 margin: 10px auto;
+		}
+		label {
+			display: block;
+		}
+		input, label {
+			width: 90%;
+			margin: 10px auto;
+		}
+		.skaicius {
+		
+			color: green;
+		}
+		.klaida {
+		
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	Labas Spring web
+	<table>
+		<tr>
+			<th>
+				x
+			</th>
+			<th>
+				y
+			</th>			
+			<th>
+				z
+			</th>
+		</tr>
+		<tr th:each="taskas : ${kreive.getTaskai()}">
+			<td th:text="${taskas.getX()}"></td>
+			<td th:text="${taskas.getY()}"></td>
+			<td th:text="${taskas.getZ()}"></td>			
+		</tr>
+	</table>
+	<div>
+	Kreivės ilgis: <span class="skaicius" th:text="${kreive.ilgis()}"></span>
+	
+	Taško koordinatės:<br>
+	x: <span class="skaicius" th:text="${taskas.getX()}"></span>
+	y: <span class="skaicius" th:text="${taskas.getY()}"></span>
+	z: <span class="skaicius" th:text="${taskas.getZ()}"></span>			
+	</div>
+	<div id="forma">
+		<h3>Taško įvedimas</h3>
+		<span class="klaida" th:text="${err_msg}"></span>
+		<form method="POST" action="">
+			<label for="x">x</label>
+			<input name="x" id="inp_x" type="text">
+			<label for="y">y</label>
+			<input name="y" id="inp_y" type="text">	
+			<label for="z">z</label>
+			<input name="z" id="inp_z" type="text">
+			<input type="submit" name="rasti_atstuma" class="frm_button" value="skaiciuoti">
+			<input type="button" name="piesti" id="piesti" class="frm_button" value="Piesti">
+		</form>
+		<div>
+			Atstumai: <span class="skaicius" th:text="${atstumux_masyvas}"></span>
+			Mažausias atstumas: <span class="skaicius" th:text="${kreive.getMin_atstumas()}"></span>
+		</div>
+	</div>	
+	<canvas id="kreives_grafikas"  width="900" height="500">
+	</canvas>		
+</body>
+</html>

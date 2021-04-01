@@ -34,7 +34,7 @@
 				System.out.println ( "\n Iveskite z" );
 				
 				taskas.z = Double.parseDouble ( reader.readLine() );
-					
+								
 			} catch ( IOException ioe ) {
 					
 				ioe.printStackTrace();

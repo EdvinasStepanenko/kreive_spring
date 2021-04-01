@@ -97,7 +97,7 @@ public class Kreive3D extends Kreive {
 			atstumux_masyvas.add(atstumasx);
 			i++;
 		}
-		System.out.println(i);
+		System.out.println("Kreive3D IlgisX" + i);
 		return atstumux_masyvas;
 	}	
 

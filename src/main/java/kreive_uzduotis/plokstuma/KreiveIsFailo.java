@@ -54,6 +54,7 @@ public class KreiveIsFailo {
 			System.out.println ( "\n Iveskite y" );
 				
 			taskas.y = Double.parseDouble ( reader.readLine() );
+			
 				
 		} catch ( IOException ioe ) {
 				
@@ -61,5 +62,15 @@ public class KreiveIsFailo {
 		}	
 			return taskas;
 		
+	}	
+	
+	public void setVardasFailo( String failo_vardas ) {
+		
+		vardas_failo = failo_vardas;
+	}
+
+	public String getVardasFailo() {
+		
+		return vardas_failo;
 	}	
 }

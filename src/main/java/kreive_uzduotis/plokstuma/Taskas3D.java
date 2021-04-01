@@ -14,4 +14,16 @@ public class Taskas3D extends Taskas {
 		z = z_koord;
 	}
 	
+	public double getZ() {
+		return z;
+	}
+
+	public void setZ(double z) {
+		this.z = z;
+	}
+	
+	public String toString() {
+		
+		return "x:" + String.format ( "%10.3f" , x ) + "y:" + String.format ( "%10.3f" , y ) + "z:" + String.format ( "%10.3f" , z );
+	}
 }

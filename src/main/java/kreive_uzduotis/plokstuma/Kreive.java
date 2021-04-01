@@ -98,5 +98,30 @@
 			return atstumux_masyvas;
 		}	
 		
-		
+		public Taskas[] getTaskai() {
+			return taskai;
+		}
+
+		public void setTaskai(Taskas[] taskai) {
+			this.taskai = taskai;
+		}
+
+		public int getKiek_tasku() {
+			
+			return kiek_tasku;
+		}
+
+		public void setKiek_tasku(int kiek_tasku) {
+			
+			this.kiek_tasku = kiek_tasku;
+		}
+
+		public Double getMin_atstumas() {
+			return min_atstumas;
+		}
+
+		public void setMin_atstumas(Double min_atstumas) {
+			this.min_atstumas = min_atstumas;
+		}
+				
 	}

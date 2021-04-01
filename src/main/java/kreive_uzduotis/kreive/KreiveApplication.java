@@ -11,12 +11,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class KreiveApplication {
 
 	public static void main(String[] args) throws IOException {
-		// SpringApplication.run(KreiveApplication.class, args);
-				ApplicationContext context = new ClassPathXmlApplicationContext( "file:src/beans.xml" );
+		 SpringApplication.run(KreiveApplication.class, args);
+				/*ApplicationContext context = new ClassPathXmlApplicationContext( "file:src/beans.xml" );
 				KreivesIlgis ki = (KreivesIlgis) context.getBean( "mainspring" );
 				ki.sakomLabasSpring();
 				ki.viskasViename();
-
+*/
 	}
 
 }
