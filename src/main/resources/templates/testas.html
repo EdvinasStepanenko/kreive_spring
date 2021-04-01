@@ -10,7 +10,7 @@
 		
 		var taskai_visi;
 		var	taskas = { x: 0, y: 0, z: 0 };
-		var paskutinis_taskas
+		var artimiausio_i;
 		
 		function Braizymas(){
 		
@@ -18,21 +18,19 @@
 
 				grafikas = new GrafikasX ( 'kreives_grafikas', taskai_visi, 'x', 'z' );
 
-				paskutinis_taskas = taskai_visi.pop();
-
+				taskai_visi.pop();
+				
 				grafikas.braizom ( taskai_visi, 'x', 'z', "blue" );
 
 				atkarpa = [];
 
 				atkarpa.push ( taskas );
-				console.log("1" + paskutinis_taskas)
-				atkarpa.push ( paskutinis_taskas );
-				console.log("2" + paskutinis_taskas)
-				//vel kreptis ajaxu arba tuo paciu kreipimusi i java kreiptis ir istraukti ta taska
+		
+				atkarpa.push ( taskai_visi [ artimiausio_i ] );
+				console.log("123" + JSON.stringify (atkarpa))
+				console.log("artimiausio_i" + artimiausio_i)
 
-				//ir ikist kur ten [ 0 ] yra
-
-				grafikas.braizom ( atkarpa, 'x', 'z', "red" );		
+				grafikas.braizom ( atkarpa, 'x', 'z', "red" );
 		}
 		
 		function Ajaxas(){
@@ -46,7 +44,7 @@
 				console.log ( JSON.stringify ( data ) );
 			
 				taskai_visi = data.taskai;
-				
+				artimiausio_i = data.artimiausio_i;
 				Braizymas();
 				
 		  	});	

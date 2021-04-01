@@ -10,6 +10,8 @@
 		public Taskas[] taskai;
 		public int kiek_tasku;
 		public Double min_atstumas;
+		public Taskas taskas;
+		public int artimiausio_i;
 
 		public Kreive() {
 			
@@ -67,12 +69,15 @@
 			
 			min_atstumas = masyvas.get(0);	
 			int i = 0;
+			artimiausio_i = 0;
 			
 			while ( i < kiek_tasku ) {
 			
 				if (min_atstumas > masyvas.get(i) ) {
 					
 					min_atstumas = masyvas.get(i);
+					
+					artimiausio_i = i;
 					
 				}
 				i++;	
@@ -82,6 +87,8 @@
 		public ArrayList<Double> ilgisX ( Taskas taskas ) {
 		
 			ArrayList<Double> atstumux_masyvas = new ArrayList<Double>();
+			
+			this.taskas = taskas;
 			
 			int i = 0;
 			double atstumasx = 0;

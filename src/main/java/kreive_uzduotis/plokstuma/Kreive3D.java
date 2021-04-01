@@ -81,6 +81,8 @@ public class Kreive3D extends Kreive {
 	}	
 */	
 	public ArrayList<Double> ilgisX ( Taskas taskas ) {
+		
+		this.taskas = taskas;
 	
 		ArrayList<Double> atstumux_masyvas = new ArrayList<Double>();
 		

@@ -102,6 +102,7 @@ public class PageController {
 			ArrayList<Double> atstumux_masyvas =  kreive.ilgisX(taskas3d);
 			System.out.println("asdf" + atstumux_masyvas);
 			kreive.minReiksme(atstumux_masyvas);
+			System.out.println(kreive.artimiausio_i);
 		
 		} catch ( Exception e ) {
 			
